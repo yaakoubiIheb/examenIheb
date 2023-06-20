@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Product</title>
+</head>
+<body>
+<h2>Recherche de produit</h2>
+
+<form action="#" th:action="@{/product/search}" method="get">
+    <label for="mot_cle">Mot clé:</label>
+    <input type="text" id="mot_cle" name="mot_cle">
+    <button type="submit">Recherche</button>
+</form>
+
+<h2>Résultat de la recherche</h2>
+
+<table>
+    <thead>
+    <tr>
+
+        <th>Référence</th>
+        <th>Désignation</th>
+        <th>Catégorie</th>
+        <th>Prix</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id_p}"></td>
+        <td th:text="${product.designation}"></td>
+        <td th:text="${product.categorie}"></td>
+        <td th:text="${product.prix}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
